@@ -1,9 +1,11 @@
 '''
 0. 编写一个函数，判断传入的字符串参数是否为“回文联”
 （回文联即用回文形式写成的对联，既可顺读，也可倒读。例如：上海自来水来自海上）
-
+（23递归课后题 改成递归形式）
 
 '''
+'''
+#非递归
 
 def huiwen(inputstr):
     flag = 0
@@ -23,8 +25,9 @@ def huiwen(inputstr):
 
 inputstr = input('请输入一句话：')
 huiwen(inputstr)
+‘’’
 
-'''
+‘’’
 参考：
 别忘了list可以转换为列表：reversed（sequence）
 reversed（）方法用于返回逆向迭代序列的值。
@@ -67,3 +70,21 @@ else:
 
 
 '''
+#递归 参考了小甲鱼：
+#小甲鱼的实现方式比较朴素，利用递归每次索引前后两个字符进行对比，当start > end的时候，也正是首尾下标“碰面”的时候，即作为结束递归的条件。
+
+def is_palindrome(n, start, end):
+    if start > end:
+        return 1
+    else:
+        return is_palindrome(n, start+1, end-1) if n[start] == n[end] else 0
+
+
+string = input('请输入一串字符串：')
+length = len(string) - 1#末端字符索引
+
+if is_palindrome(string, 0, length):
+    print('\"%s\"是回文字符串！' % string) #打印字符串的双引号\"
+else:
+    print('\"%s\"不是回文字符串！' % string)
+
