@@ -1,3 +1,5 @@
+#31课课堂演示 把原来的city这个字典变成pkl文件 然后加载进来
+
 import urllib.request
 import json
 import pickle
